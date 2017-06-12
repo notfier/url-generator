@@ -15,8 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.shortcuts import render
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('generator.urls')),
+    url(r'^', include('generator.urls', namespace='generator')),
 ]
+
+def handler404(request, exception=None):
+    return render(request, '400.html', {'exception': exception}, status=404)
+
+def handler500(request, exception=None):
+    return render(request, '500.html', {'exception': exception}, status=500)

@@ -1,10 +1,10 @@
 from django.conf.urls import url
-from django.views.generic import TemplateView
 
 from . import views
 
 
 urlpatterns = [
-    url(r'^[A-Za-z0-9+?&/=_-]+', views.GeneratorView.as_view(), name='generator'),
-    url(r'^', TemplateView.as_view(template_name='home.html'), name='home'),
+    url(r'^([A-Za-z0-9+?&/=_-]+)$', views.SuccessView.as_view(), name='get-original'),
+    url(r'^(?P<short_url>[A-Za-z]{6})/$', views.GetOriginalView.as_view(), name='get-original'),
+    url(r'^$', views.ShortenUrlView.as_view(), name='shorten-home'),
 ]

@@ -64,8 +64,5 @@ $ make test # run all the tests
 ```sh
 $ deactivate
 ```
-****
-Check github [link](https://github.com/notfier/url-generator);
-****
 
-2017
+*Note:* An alternative solution is to use Docker setup with nginx, postgres to achieve a necessary result with party generated url, but it can be a bit overhead for this task.

@@ -29,6 +29,17 @@ div.body-text {
     width: 50%;
 }
 
+div.instruction form {
+    text-align: center;
+}
+
+div.instruction input[type="submit"] {
+    background-color: #1a7a4c;
+    color: #fff;
+    border-radius: 4px;
+    border: 2px solid;
+}
+
 div.center-text p {
     text-align: center;
 }

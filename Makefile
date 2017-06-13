@@ -8,11 +8,20 @@ run:
 		$(MANAGE) runserver; \
 	)
 makemigrations:
-	$(MANAGE) makemigrations
+	( \
+		source .env/bin/activate; \
+		$(MANAGE) makemigrations; \
+	)
 migrate:
-	$(MANAGE) migrate
+	( \
+		source .env/bin/activate; \
+		$(MANAGE) migrate; \
+	)
 test:
-	$(MANAGE) test
+	( \
+		source .env/bin/activate; \
+		$(MANAGE) test; \
+	)
 shell:
 	$(MANAGE) shell
 createsuperuser:

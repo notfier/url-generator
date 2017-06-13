@@ -8,9 +8,10 @@
     </div>
     <div class="body-text">
         <div class="instruction">
-            <p class="center">Instruction:</p>
-            <form action="{% url 'generator:shorten-home' %}" method="post">
-                {% csrf_token %}{{ form }}
+            <p class="center">{% trans "Generate a short url here" %}:</p>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form }}
                 <input type="submit" value="Shorten your url"/>
             </form>
             <p>{% trans "To manage urls click do the following" %}:</p>

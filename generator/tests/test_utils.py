@@ -1,7 +1,6 @@
 from django.test import TestCase
 
-from .utils import generate_a_short_url
-# Create your tests here.
+from ..utils import generate_a_short_url
 
 
 class TestUtils(TestCase):

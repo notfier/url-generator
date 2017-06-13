@@ -5,7 +5,6 @@ from django.shortcuts import render, redirect
 from django.views import View
 
 from .models import UrlModel
-from .utils import generate_a_short_url
 
 
 class GeneratorView(View):
@@ -19,10 +18,7 @@ class GeneratorView(View):
             })
         except UrlModel.DoesNotExist:
             if not UrlModel.objects.filter(original_url=path).exists():
-                url_model = UrlModel.objects.create(
-                    original_url=path,
-                    short_url=generate_a_short_url(size=6)
-                )
+                url_model = UrlModel.objects.create_url(original_url=path)
             else:
                 return HttpResponseBadRequest('This url is already used')
         return render(request, 'generator/url_was_generated.html', {

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div>This page was redirected from {{ url_obj.short_url }}!</div>
+    <div>This page was redirected from {{ url_obj.short_url }} and generated from {{ url_obj.original_url }}!</div>
 {% endblock content %}

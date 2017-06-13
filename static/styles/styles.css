@@ -1,0 +1,50 @@
+body {
+    background-color: #fff;
+    color: #2eb82e;
+    font-family: 'Pangolin', cursive;
+}
+
+body a {
+    color: #999900;
+    text-decoration: none;
+}
+
+body a:hover {
+    color: #b3b300;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+div.center-text {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5%;
+    width: 50%;
+}
+
+div.body-text {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5%;
+    width: 50%;
+}
+
+div.center-text p {
+    text-align: center;
+}
+
+div.instruction p.center {
+    text-align: center;
+    font-size: 20px;
+}
+
+.body-text div.links {
+    margin-top: 1%;
+    background-color: #ebfaeb;
+    padding: 1%;
+}
+
+.body-text div.instruction {
+    background-color: #ebfaeb;
+    padding: 1%;
+}

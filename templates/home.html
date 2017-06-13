@@ -1,5 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<p>Hey! Home</p>
+<div>
+    <div class="center-text">
+        <p>Hello! This is a simple Django App generating custom urls from your browser Addres Bar!</p>
+    </div>
+    <div class="body-text">
+        <div class="instruction">
+            <p class="center">Instruction:</p>
+            <p>Simply add a specific url to your localhost part in the Address Bar and you're getting the successfully generated page or an error that such url is already used.</p>
+            <p class="center">To manage urls click do the following:</p>
+            <p>click <a href="{% url 'admin:index' %}">here</a> and paste credentials(both fields - 'admin').</p>
+        </div>
+        <div class="links">for other docs and source code check this <a href="https://github.com/notfier/url-generator">github link</a></div>
+    </div>
+</div>
 {% endblock content %}

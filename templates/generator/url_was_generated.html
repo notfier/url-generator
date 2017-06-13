@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
-    <p>The {{generated_url.short_url}} url was generated from {{ generated_url.original_url }}!</p>
+<div class="body-text center-text">
+    <p>The <b>{{generated_url.short_url}}</b> url was generated from <b>/{{ generated_url.original_url }}</b>!</p>
 </div>
 {% endblock content %}

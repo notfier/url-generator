@@ -3,7 +3,7 @@
 
 {% block content %}
     <div class="body-text center-text">
-        <p>{% trans "This page was created(redirected) from " %}<b><a href="/{{ url_obj.short_url }}/">{{ url_obj.short_url }}</a></b> {% trans "and generated from " %}<b>{{ url_obj.original_url }}</b>!</p>
+        <p>{% trans "The short link " %}<b><a href="{{ request.scheme }}://{{ request.get_host }}/{{ url_obj.short_url }}">{{ url_obj.short_url }}</a></b> {% trans "was generated from " %}<b><a href="{{ url_obj.original_url }}">{{ url_obj.original_url }}</a></b>!</p>
         <p class='center'>
             <a href="{% url 'generator:shorten-home' %}">{% trans "back to the home page" %}</a>
         </p>

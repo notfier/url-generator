@@ -3,6 +3,7 @@ from django.views.generic.edit import CreateView
 from django.views import View
 from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView
+from django.urls import reverse
 
 from .models import UrlModel
 from .forms import UrlForm
@@ -15,12 +16,10 @@ class SuccessView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(SuccessView, self).get_context_data(**kwargs)
-        path = '{0}://{1}{2}'.format(
-            self.request.scheme,
-            self.request.get_host(),
-            self.request.get_full_path()
+        context['url_obj'] = get_object_or_404(
+            UrlModel,
+            short_url=self.kwargs.get('short_url')
         )
-        context['url_obj'] = get_object_or_404(UrlModel, original_url=path)
         return context
 
 
@@ -31,7 +30,7 @@ class ShortenUrlView(CreateView):
 
     def form_valid(self, form):
         self.object = form.save()
-        return HttpResponseRedirect(self.object.original_url)
+        return HttpResponseRedirect(reverse('generator:get-success', args=[self.object.short_url]))
 
 
 class GetOriginalView(View):

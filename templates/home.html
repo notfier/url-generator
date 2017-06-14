@@ -14,6 +14,7 @@
                 {{ form }}
                 <input type="submit" value="Shorten your url"/>
             </form>
+            <p>{% trans "After generating your short link, you can simply get it entering `localhost:8000/your_short_link/` in the browser." %}</p>
             <p>{% trans "To manage urls click do the following" %}:</p>
             <p>click <a href="{% url 'admin:index' %}">here</a> and paste credentials(both fields - 'admin').</p>
         </div>

@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -127,3 +126,4 @@ STATICFILES_DIRS = (
 )
 
 SHORT_URL_LENGTH = 6
+APPEND_SLASH = True

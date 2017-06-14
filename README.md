@@ -41,7 +41,7 @@ $ make install_and_run
 
 ****
 ## Development ##
-###Activate environment for the project###
+### Activate environment for the project ###
 ```sh
 $ source .env/bin/activate
 ```
@@ -54,13 +54,13 @@ $ make run
 
 ****
 ## Testing ##
-###Test server side###
+### Test server side ###
 ```sh
 $ make test # run all the tests
 ```
 
 ****
-###Deactivate environment for project###
+### Deactivate environment for project ###
 ```sh
 $ deactivate
 ```

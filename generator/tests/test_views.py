@@ -12,12 +12,13 @@ class TestGeneratorView(TestCase):
         response = self.client.post(reverse('generator:shorten-home'), {
             'original_url': 'http://localhost/hey/nananei?foo=bar'
         })
+        url = UrlModel.objects.first()
+        self.assertEqual(UrlModel.objects.count(), 1)
         self.assertRedirects(
             response,
-            'http://localhost/hey/nananei?foo=bar',
+            reverse('generator:get-success', args=[url.short_url]),
             fetch_redirect_response=False
         )
-        self.assertEqual(UrlModel.objects.count(), 1)
 
     def test_get_original_view(self):
         entered_url = 'http://localhost/a_url?foo=bar'
@@ -37,13 +38,11 @@ class TestGeneratorView(TestCase):
 
     def test_success_page(self):
         # generate original url first
-        factory = RequestFactory()
         url = UrlModel.objects.create(
             original_url='http://testserver/hey/nananei?foo=bar',
             short_url=generate_a_short_url(size=6)
         )
-        request = factory.get(url.original_url)
-        response = SuccessView.as_view()(request)
+        response = self.client.get(reverse('generator:get-success', args=[url.short_url]))
 
         self.assertContains(response, url.original_url)
         self.assertContains(response, url.short_url)
